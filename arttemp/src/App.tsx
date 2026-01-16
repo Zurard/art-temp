@@ -17,7 +17,7 @@ type ArtData = {
 export default function App() {
     const [ArtData , setArtData] = useState<ArtData[]>([]);
     const [loading, setLoading] = useState(true);
-    const [selectedArt, setSelectedArt] = useState<ArtData[]>([]);
+    const [selectedArt, setSelectedArt] = useState<ArtData | null>(null);
     const [totalRecords, setTotalRecords] = useState(0);
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(12);
@@ -49,7 +49,7 @@ export default function App() {
       value={paginatedData}
       loading={loading}
       rows={12}
-      onSelectionChange={(e) => setSelectedArt(e.value as ArtData[])}
+      onSelectionChange={(e) => setSelectedArt(e.value as ArtData)}
       tableStyle={{ minWidth: "30rem" }}>
         <Column selectionMode="multiple" header="Select" headerStyle={{ width:"5rem"}} />
         <Column field="id" header="ID" />
