@@ -24,7 +24,6 @@ export default function Pagination({
       first={page * rows}
       rows={rows}
       totalRecords={totalRecords}
-      rowsPerPageOptions={[5, 10, 20]}
       onPageChange={handlePageChange}
     />
   );
