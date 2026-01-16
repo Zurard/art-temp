@@ -1,0 +1,15 @@
+[build]
+  command = "bun run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Ignore backend directory for builds
+[[ignore]]
+  command = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- . ':!backend'"
